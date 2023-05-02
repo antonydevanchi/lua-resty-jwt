@@ -1,8 +1,8 @@
 local cjson = require "cjson.safe"
 
-local evp = require "resty.evp"
-local hmac = require "resty.hmac"
-local resty_random = require "resty.random"
+local evp = require "plugins.resty.evp"
+local hmac = require "plugins.resty.hmac"
+local resty_random = require "plugins.resty.random"
 local cipher = require "resty.openssl.cipher"
 
 local _M = { _VERSION = "0.2.3" }
