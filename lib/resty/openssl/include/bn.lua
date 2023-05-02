@@ -1,7 +1,7 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+require "resty.openssl.include.ossl_typ"
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
 
 local BN_ULONG
 if ffi.abi('64bit') then

@@ -1,8 +1,8 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-require "plugins.resty.openssl.include.ossl_typ"
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+require "resty.openssl.include.ossl_typ"
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
 
 ffi.cdef [[
   typedef struct ASN1_VALUE_st ASN1_VALUE;
@@ -54,9 +54,9 @@ declare_asn1_functions("ASN1_OBJECT")
 declare_asn1_functions("ASN1_STRING")
 declare_asn1_functions("ASN1_ENUMERATED")
 
-local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
-local BORINGSSL_110 = require("plugins.resty.openssl.version").BORINGSSL_110
+local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local BORINGSSL_110 = require("resty.openssl.version").BORINGSSL_110
 
 local ASN1_STRING_get0_data
 if OPENSSL_11_OR_LATER then

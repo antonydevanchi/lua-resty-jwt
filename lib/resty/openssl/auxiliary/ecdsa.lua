@@ -4,9 +4,9 @@ local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 local C = ffi.C
 
-require "plugins.resty.openssl.include.ecdsa"
-local bn_lib = require "plugins.resty.openssl.bn"
-local format_error = require("plugins.resty.openssl.err").format_error
+require "resty.openssl.include.ecdsa"
+local bn_lib = require "resty.openssl.bn"
+local format_error = require("resty.openssl.err").format_error
 local ceil = math.ceil
 
 local _M = {}

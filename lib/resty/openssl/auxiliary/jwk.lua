@@ -5,12 +5,12 @@ local C = ffi.C
 local cjson = require("cjson.safe")
 local b64 = require("ngx.base64")
 
-local evp_macro = require "plugins.resty.openssl.include.evp"
-local rsa_lib = require "plugins.resty.openssl.rsa"
-local ec_lib = require "plugins.resty.openssl.ec"
-local ecx_lib = require "plugins.resty.openssl.ecx"
-local bn_lib = require "plugins.resty.openssl.bn"
-local digest_lib = require "plugins.resty.openssl.digest"
+local evp_macro = require "resty.openssl.include.evp"
+local rsa_lib = require "resty.openssl.rsa"
+local ec_lib = require "resty.openssl.ec"
+local ecx_lib = require "resty.openssl.ecx"
+local bn_lib = require "resty.openssl.bn"
+local digest_lib = require "resty.openssl.digest"
 
 local _M = {}
 

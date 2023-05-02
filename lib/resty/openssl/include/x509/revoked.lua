@@ -1,9 +1,9 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
-require "plugins.resty.openssl.include.asn1"
-require "plugins.resty.openssl.include.objects"
-local asn1_macro = require "plugins.resty.openssl.include.asn1"
+require "resty.openssl.include.ossl_typ"
+require "resty.openssl.include.asn1"
+require "resty.openssl.include.objects"
+local asn1_macro = require "resty.openssl.include.asn1"
 
 asn1_macro.declare_asn1_functions("X509_REVOKED")
 

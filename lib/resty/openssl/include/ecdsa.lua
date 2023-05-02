@@ -1,6 +1,6 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
+require "resty.openssl.include.ossl_typ"
 
 ffi.cdef [[
   ECDSA_SIG *ECDSA_SIG_new(void);

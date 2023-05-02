@@ -4,14 +4,14 @@ local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 local ffi_cast = ffi.cast
 
-require "plugins.resty.openssl.include.evp.cipher"
-local evp_macro = require "plugins.resty.openssl.include.evp"
-local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
-local ctx_lib = require "plugins.resty.openssl.ctx"
-local format_error = require("plugins.resty.openssl.err").format_error
-local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+require "resty.openssl.include.evp.cipher"
+local evp_macro = require "resty.openssl.include.evp"
+local ctypes = require "resty.openssl.auxiliary.ctypes"
+local ctx_lib = require "resty.openssl.ctx"
+local format_error = require("resty.openssl.err").format_error
+local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
 
 local uchar_array = ctypes.uchar_array
 local void_ptr = ctypes.void_ptr
@@ -90,7 +90,7 @@ function _M:get_provider_name()
 end
 
 if OPENSSL_3X then
-  local param_lib = require "plugins.resty.openssl.param"
+  local param_lib = require "resty.openssl.param"
   _M.settable_params, _M.set_params, _M.gettable_params, _M.get_param = param_lib.get_params_func("EVP_CIPHER_CTX")
 end
 

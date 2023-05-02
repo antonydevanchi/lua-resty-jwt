@@ -1,6 +1,6 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
+require "resty.openssl.include.ossl_typ"
 
 ffi.cdef [[
   /** Enum for the point conversion form as defined in X9.62 (ECDSA)

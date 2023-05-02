@@ -1,16 +1,16 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
-require "plugins.resty.openssl.include.evp"
-require "plugins.resty.openssl.include.objects"
-require "plugins.resty.openssl.include.x509"
-require "plugins.resty.openssl.include.stack"
+require "resty.openssl.include.ossl_typ"
+require "resty.openssl.include.evp"
+require "resty.openssl.include.objects"
+require "resty.openssl.include.x509"
+require "resty.openssl.include.stack"
 
-local asn1_macro = require "plugins.resty.openssl.include.asn1"
+local asn1_macro = require "resty.openssl.include.asn1"
 
-local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
-local BORINGSSL_110 = require("plugins.resty.openssl.version").BORINGSSL_110
+local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local BORINGSSL_110 = require("resty.openssl.version").BORINGSSL_110
 
 asn1_macro.declare_asn1_functions("X509_CRL", asn1_macro.has_new_ex)
 

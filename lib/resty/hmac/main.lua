@@ -1,4 +1,4 @@
-local str_util = require "plugins.resty.string"
+local str_util = require "resty.string"
 local to_hex = str_util.to_hex
 local ffi = require "ffi"
 local ffi_new = ffi.new

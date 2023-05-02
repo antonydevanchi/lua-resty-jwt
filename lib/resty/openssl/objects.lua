@@ -3,8 +3,8 @@ local C = ffi.C
 local ffi_str = ffi.string
 local ffi_sizeof = ffi.sizeof
 
-require "plugins.resty.openssl.include.objects"
-require "plugins.resty.openssl.include.err"
+require "resty.openssl.include.objects"
+require "resty.openssl.include.err"
 
 local buf = ffi.new('char[?]', 100)
 

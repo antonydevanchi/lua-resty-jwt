@@ -1,6 +1,6 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
+require "resty.openssl.include.ossl_typ"
 
 ffi.cdef [[
   int OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name);

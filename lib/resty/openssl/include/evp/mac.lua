@@ -1,7 +1,7 @@
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
-require "plugins.resty.openssl.include.provider"
+require "resty.openssl.include.ossl_typ"
+require "resty.openssl.include.provider"
 
 ffi.cdef [[
   typedef struct evp_mac_st EVP_MAC;

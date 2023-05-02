@@ -1,12 +1,12 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-require "plugins.resty.openssl.include.dh"
-local bn_lib = require "plugins.resty.openssl.bn"
+require "resty.openssl.include.dh"
+local bn_lib = require "resty.openssl.bn"
 
-local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
-local format_error = require("plugins.resty.openssl.err").format_error
+local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local format_error = require("resty.openssl.err").format_error
 
 local _M = {}
 

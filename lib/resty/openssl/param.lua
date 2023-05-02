@@ -4,10 +4,10 @@ local ffi_new = ffi.new
 local ffi_str = ffi.string
 local ffi_cast = ffi.cast
 
-require "plugins.resty.openssl.include.param"
-local format_error = require("plugins.resty.openssl.err").format_error
-local bn_lib = require("plugins.resty.openssl.bn")
-local null = require("plugins.resty.openssl.auxiliary.ctypes").null
+require "resty.openssl.include.param"
+local format_error = require("resty.openssl.err").format_error
+local bn_lib = require("resty.openssl.bn")
+local null = require("resty.openssl.auxiliary.ctypes").null
 
 local OSSL_PARAM_INTEGER = 1
 local OSSL_PARAM_UNSIGNED_INTEGER = 2

@@ -2,9 +2,9 @@ local ffi = require "ffi"
 local C = ffi.C
 local ffi_gc = ffi.gc
 
-require "plugins.resty.openssl.include.ossl_typ"
-local format_error = require("plugins.resty.openssl.err").format_error
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+require "resty.openssl.include.ossl_typ"
+local format_error = require("resty.openssl.err").format_error
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
 
 ffi.cdef [[
   OSSL_LIB_CTX *OSSL_LIB_CTX_new(void);

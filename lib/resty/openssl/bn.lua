@@ -5,12 +5,12 @@ local ffi_new = ffi.new
 local ffi_str = ffi.string
 local floor = math.floor
 
-require "plugins.resty.openssl.include.bn"
-local crypto_macro = require("plugins.resty.openssl.include.crypto")
-local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
-local format_error = require("plugins.resty.openssl.err").format_error
-local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+require "resty.openssl.include.bn"
+local crypto_macro = require("resty.openssl.include.crypto")
+local ctypes = require "resty.openssl.auxiliary.ctypes"
+local format_error = require("resty.openssl.err").format_error
+local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
 
 local _M = {}
 local mt = {__index = _M}

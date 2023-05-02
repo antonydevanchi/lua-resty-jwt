@@ -1,12 +1,12 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-require "plugins.resty.openssl.include.ossl_typ"
-require "plugins.resty.openssl.include.stack"
-local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
-local BORINGSSL_110 = require("plugins.resty.openssl.version").BORINGSSL_110
+require "resty.openssl.include.ossl_typ"
+require "resty.openssl.include.stack"
+local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local BORINGSSL_110 = require("resty.openssl.version").BORINGSSL_110
 
 ffi.cdef [[
   X509_STORE *X509_STORE_new(void);

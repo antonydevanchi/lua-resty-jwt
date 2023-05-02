@@ -2,9 +2,9 @@ local ffi = require "ffi"
 local C = ffi.C
 local ffi_gc = ffi.gc
 
-local stack_lib = require "plugins.resty.openssl.stack"
-local extension_lib = require "plugins.resty.openssl.x509.extension"
-local format_error = require("plugins.resty.openssl.err").format_error
+local stack_lib = require "resty.openssl.stack"
+local extension_lib = require "resty.openssl.x509.extension"
+local format_error = require("resty.openssl.err").format_error
 
 local _M = {}
 

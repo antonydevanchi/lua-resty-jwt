@@ -4,12 +4,12 @@ local ffi_gc = ffi.gc
 local ffi_cast = ffi.cast
 local ffi_str = ffi.string
 
-require "plugins.resty.openssl.include.x509"
-require "plugins.resty.openssl.include.x509v3"
-local asn1_macro = require "plugins.resty.openssl.include.asn1"
-local stack_lib = require "plugins.resty.openssl.stack"
-local name_lib = require "plugins.resty.openssl.x509.name"
-local altname_macro = require "plugins.resty.openssl.include.x509.altname"
+require "resty.openssl.include.x509"
+require "resty.openssl.include.x509v3"
+local asn1_macro = require "resty.openssl.include.asn1"
+local stack_lib = require "resty.openssl.stack"
+local name_lib = require "resty.openssl.x509.name"
+local altname_macro = require "resty.openssl.include.x509.altname"
 
 local _M = {}
 

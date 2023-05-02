@@ -5,18 +5,18 @@ local ffi_new = ffi.new
 local ffi_cast = ffi.cast
 local ffi_str = ffi.string
 
-require "plugins.resty.openssl.include.x509"
-require "plugins.resty.openssl.include.x509.extension"
-require "plugins.resty.openssl.include.x509v3"
-require "plugins.resty.openssl.include.bio"
-require "plugins.resty.openssl.include.conf"
-local asn1_macro = require("plugins.resty.openssl.include.asn1")
-local objects_lib = require "plugins.resty.openssl.objects"
-local stack_lib = require("plugins.resty.openssl.stack")
-local bio_util = require "plugins.resty.openssl.auxiliary.bio"
-local format_error = require("plugins.resty.openssl.err").format_error
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
-local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
+require "resty.openssl.include.x509"
+require "resty.openssl.include.x509.extension"
+require "resty.openssl.include.x509v3"
+require "resty.openssl.include.bio"
+require "resty.openssl.include.conf"
+local asn1_macro = require("resty.openssl.include.asn1")
+local objects_lib = require "resty.openssl.objects"
+local stack_lib = require("resty.openssl.stack")
+local bio_util = require "resty.openssl.auxiliary.bio"
+local format_error = require("resty.openssl.err").format_error
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local BORINGSSL = require("resty.openssl.version").BORINGSSL
 
 local _M = {}
 local mt = { __index = _M }
@@ -231,7 +231,7 @@ function _M.to_data(extension, nid)
     -- we left the elements referenced by the new-dup'ed stack
     ffi_gc(void_ptr, stack_lib.gc_of("GENERAL_NAME"))
     local got = ffi_cast("GENERAL_NAMES*", void_ptr)
-    local lib = require("plugins.resty.openssl.x509.altname")
+    local lib = require("resty.openssl.x509.altname")
     -- the internal ptr is returned, ie we need to copy it
     return lib.dup(got)
   end

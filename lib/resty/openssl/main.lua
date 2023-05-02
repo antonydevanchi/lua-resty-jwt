@@ -3,7 +3,7 @@ local C = ffi.C
 local ffi_cast = ffi.cast
 local ffi_str = ffi.string
 
-local format_error = require("plugins.resty.openssl.err").format_error
+local format_error = require("resty.openssl.err").format_error
 
 local OPENSSL_3X, BORINGSSL
 
@@ -15,8 +15,8 @@ local function try_require_modules()
     OPENSSL_3X = lib.OPENSSL_3X
     BORINGSSL = lib.BORINGSSL
 
-    require "plugins.resty.openssl.include.crypto"
-    require "plugins.resty.openssl.include.objects"
+    require "resty.openssl.include.crypto"
+    require "resty.openssl.include.objects"
   else
     package.loaded["plugins.resty.openssl.version"] = nil
   end
@@ -51,33 +51,33 @@ function _M.load_library()
 end
 
 function _M.load_modules()
-  _M.bn = require("plugins.resty.openssl.bn")
-  _M.cipher = require("plugins.resty.openssl.cipher")
-  _M.digest = require("plugins.resty.openssl.digest")
-  _M.hmac = require("plugins.resty.openssl.hmac")
-  _M.kdf = require("plugins.resty.openssl.kdf")
-  _M.pkey = require("plugins.resty.openssl.pkey")
-  _M.objects = require("plugins.resty.openssl.objects")
-  _M.rand = require("plugins.resty.openssl.rand")
-  _M.version = require("plugins.resty.openssl.version")
-  _M.x509 = require("plugins.resty.openssl.x509")
-  _M.altname = require("plugins.resty.openssl.x509.altname")
-  _M.chain = require("plugins.resty.openssl.x509.chain")
-  _M.csr = require("plugins.resty.openssl.x509.csr")
-  _M.crl = require("plugins.resty.openssl.x509.crl")
-  _M.extension = require("plugins.resty.openssl.x509.extension")
-  _M.extensions = require("plugins.resty.openssl.x509.extensions")
-  _M.name = require("plugins.resty.openssl.x509.name")
-  _M.revoked = require("plugins.resty.openssl.x509.revoked")
-  _M.store = require("plugins.resty.openssl.x509.store")
-  _M.pkcs12 = require("plugins.resty.openssl.pkcs12")
-  _M.ssl = require("plugins.resty.openssl.ssl")
-  _M.ssl_ctx = require("plugins.resty.openssl.ssl_ctx")
+  _M.bn = require("resty.openssl.bn")
+  _M.cipher = require("resty.openssl.cipher")
+  _M.digest = require("resty.openssl.digest")
+  _M.hmac = require("resty.openssl.hmac")
+  _M.kdf = require("resty.openssl.kdf")
+  _M.pkey = require("resty.openssl.pkey")
+  _M.objects = require("resty.openssl.objects")
+  _M.rand = require("resty.openssl.rand")
+  _M.version = require("resty.openssl.version")
+  _M.x509 = require("resty.openssl.x509")
+  _M.altname = require("resty.openssl.x509.altname")
+  _M.chain = require("resty.openssl.x509.chain")
+  _M.csr = require("resty.openssl.x509.csr")
+  _M.crl = require("resty.openssl.x509.crl")
+  _M.extension = require("resty.openssl.x509.extension")
+  _M.extensions = require("resty.openssl.x509.extensions")
+  _M.name = require("resty.openssl.x509.name")
+  _M.revoked = require("resty.openssl.x509.revoked")
+  _M.store = require("resty.openssl.x509.store")
+  _M.pkcs12 = require("resty.openssl.pkcs12")
+  _M.ssl = require("resty.openssl.ssl")
+  _M.ssl_ctx = require("resty.openssl.ssl_ctx")
 
   if OPENSSL_3X then
-    _M.provider = require("plugins.resty.openssl.provider")
-    _M.mac = require("plugins.resty.openssl.mac")
-    _M.ctx = require("plugins.resty.openssl.ctx")
+    _M.provider = require("resty.openssl.provider")
+    _M.mac = require("resty.openssl.mac")
+    _M.ctx = require("resty.openssl.ctx")
   end
 
   _M.bignum = _M.bn
@@ -238,9 +238,9 @@ function _M.luaossl_compat()
 end
 
 if OPENSSL_3X then
-  require "plugins.resty.openssl.include.evp"
-  local provider = require "plugins.resty.openssl.provider"
-  local ctx_lib = require "plugins.resty.openssl.ctx"
+  require "resty.openssl.include.evp"
+  local provider = require "resty.openssl.provider"
+  local ctx_lib = require "resty.openssl.ctx"
   local fips_provider_ctx
 
   function _M.set_fips_mode(enable, self_test)
@@ -309,7 +309,7 @@ function _M.set_default_properties(props)
     return nil, "openssl.set_default_properties is only not supported from OpenSSL 3.0"
   end
 
-  local ctx_lib = require "plugins.resty.openssl.ctx"
+  local ctx_lib = require "resty.openssl.ctx"
 
   if C.EVP_set_default_properties(ctx_lib.get_libctx(), props) == 0 then
     return false, format_error("openssl.EVP_set_default_properties")
@@ -341,7 +341,7 @@ local function list_provided(typ)
   local typ_lower = string.lower(typ:sub(5)) -- cut off EVP_
   local typ_ptr = typ .. "*"
   require ("plugins.resty.openssl.include.evp." .. typ_lower)
-  local ctx_lib = require "plugins.resty.openssl.ctx"
+  local ctx_lib = require "resty.openssl.ctx"
 
   local ret = {}
 
@@ -366,7 +366,7 @@ function _M.list_cipher_algorithms()
     return nil, "openssl.list_cipher_algorithms is not supported on BoringSSL"
   end
 
-  require "plugins.resty.openssl.include.evp.cipher"
+  require "resty.openssl.include.evp.cipher"
   local ret = list_legacy("EVP_CIPHER",
               OPENSSL_3X and C.EVP_CIPHER_get_nid or C.EVP_CIPHER_nid)
 
@@ -385,7 +385,7 @@ function _M.list_digest_algorithms()
     return nil, "openssl.list_digest_algorithms is not supported on BoringSSL"
   end
 
-  require "plugins.resty.openssl.include.evp.md"
+  require "resty.openssl.include.evp.md"
   local ret = list_legacy("EVP_MD",
               OPENSSL_3X and C.EVP_MD_get_type or C.EVP_MD_type)
 
@@ -424,8 +424,8 @@ local valid_ssl_protocols = {
 }
 
 function _M.list_ssl_ciphers(cipher_list, ciphersuites, protocol)
-  local ssl_lib = require("plugins.resty.openssl.ssl")
-  local ssl_macro = require("plugins.resty.openssl.include.ssl")
+  local ssl_lib = require("resty.openssl.ssl")
+  local ssl_macro = require("resty.openssl.include.ssl")
 
   if protocol then
     if not valid_ssl_protocols[protocol] then

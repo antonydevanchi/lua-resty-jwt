@@ -4,8 +4,8 @@ local ffi_gc = ffi.gc
 local ffi_new = ffi.new
 local ffi_str = ffi.string
 
-require "plugins.resty.openssl.include.bio"
-local format_error = require("plugins.resty.openssl.err").format_error
+require "resty.openssl.include.bio"
+local format_error = require("resty.openssl.err").format_error
 
 local function read_wrap(f, ...)
   if type(f) ~= "cdata" then -- should be explictly a function

@@ -3,10 +3,10 @@ local C = ffi.C
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 
-require "plugins.resty.openssl.include.x509.name"
-require "plugins.resty.openssl.include.err"
-local objects_lib = require "plugins.resty.openssl.objects"
-local asn1_macro = require "plugins.resty.openssl.include.asn1"
+require "resty.openssl.include.x509.name"
+require "resty.openssl.include.err"
+local objects_lib = require "resty.openssl.objects"
+local asn1_macro = require "resty.openssl.include.asn1"
 
 -- local MBSTRING_FLAG = 0x1000
 local MBSTRING_ASC  = 0x1001 -- (MBSTRING_FLAG|1)

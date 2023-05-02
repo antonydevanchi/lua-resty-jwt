@@ -6,31 +6,31 @@ local ffi_str = ffi.string
 local ffi_cast = ffi.cast
 local ffi_copy = ffi.copy
 
-local rsa_macro = require "plugins.resty.openssl.include.rsa"
-local dh_macro = require "plugins.resty.openssl.include.dh"
-require "plugins.resty.openssl.include.bio"
-require "plugins.resty.openssl.include.pem"
-require "plugins.resty.openssl.include.x509"
-require "plugins.resty.openssl.include.evp.pkey"
-local evp_macro = require "plugins.resty.openssl.include.evp"
-local pkey_macro = require "plugins.resty.openssl.include.evp.pkey"
-local bio_util = require "plugins.resty.openssl.auxiliary.bio"
-local digest_lib = require "plugins.resty.openssl.digest"
-local rsa_lib = require "plugins.resty.openssl.rsa"
-local dh_lib = require "plugins.resty.openssl.dh"
-local ec_lib = require "plugins.resty.openssl.ec"
-local ecx_lib = require "plugins.resty.openssl.ecx"
-local objects_lib = require "plugins.resty.openssl.objects"
-local jwk_lib = require "plugins.resty.openssl.auxiliary.jwk"
-local ctx_lib = require "plugins.resty.openssl.ctx"
-local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
-local ecdsa_util = require "plugins.resty.openssl.auxiliary.ecdsa"
-local format_error = require("plugins.resty.openssl.err").format_error
+local rsa_macro = require "resty.openssl.include.rsa"
+local dh_macro = require "resty.openssl.include.dh"
+require "resty.openssl.include.bio"
+require "resty.openssl.include.pem"
+require "resty.openssl.include.x509"
+require "resty.openssl.include.evp.pkey"
+local evp_macro = require "resty.openssl.include.evp"
+local pkey_macro = require "resty.openssl.include.evp.pkey"
+local bio_util = require "resty.openssl.auxiliary.bio"
+local digest_lib = require "resty.openssl.digest"
+local rsa_lib = require "resty.openssl.rsa"
+local dh_lib = require "resty.openssl.dh"
+local ec_lib = require "resty.openssl.ec"
+local ecx_lib = require "resty.openssl.ecx"
+local objects_lib = require "resty.openssl.objects"
+local jwk_lib = require "resty.openssl.auxiliary.jwk"
+local ctx_lib = require "resty.openssl.ctx"
+local ctypes = require "resty.openssl.auxiliary.ctypes"
+local ecdsa_util = require "resty.openssl.auxiliary.ecdsa"
+local format_error = require("resty.openssl.err").format_error
 
-local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_111_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_111_OR_LATER
-local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
-local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
+local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_111_OR_LATER = require("resty.openssl.version").OPENSSL_111_OR_LATER
+local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local BORINGSSL = require("resty.openssl.version").BORINGSSL
 
 local ptr_of_uint = ctypes.ptr_of_uint
 local ptr_of_size_t = ctypes.ptr_of_size_t
@@ -559,7 +559,7 @@ function _M:get_provider_name()
 end
 
 if OPENSSL_3X then
-  local param_lib = require "plugins.resty.openssl.param"
+  local param_lib = require "resty.openssl.param"
   _M.settable_params, _M.set_params, _M.gettable_params, _M.get_param = param_lib.get_params_func("EVP_PKEY", "key_type")
 end
 

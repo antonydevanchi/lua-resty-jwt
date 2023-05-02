@@ -1,7 +1,7 @@
 
 local ffi = require "ffi"
 
-require "plugins.resty.openssl.include.ossl_typ"
+require "resty.openssl.include.ossl_typ"
 
 ffi.cdef [[
   // all pem_password_cb* has been modified to pem_password_cb to avoid a table overflow issue
