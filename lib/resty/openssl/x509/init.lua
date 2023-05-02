@@ -8,19 +8,19 @@ require "resty.openssl.include.x509"
 require "resty.openssl.include.x509v3"
 require "resty.openssl.include.evp"
 require "resty.openssl.include.objects"
-local stack_macro = require("resty.openssl.include.stack")
-local stack_lib = require("resty.openssl.stack")
-local asn1_lib = require("resty.openssl.asn1")
-local digest_lib = require("resty.openssl.digest")
-local extension_lib = require("resty.openssl.x509.extension")
-local pkey_lib = require("resty.openssl.pkey")
+local stack_macro = require("plugins.resty.openssl.include.stack")
+local stack_lib = require("plugins.resty.openssl.stack")
+local asn1_lib = require("plugins.resty.openssl.asn1")
+local digest_lib = require("plugins.resty.openssl.digest")
+local extension_lib = require("plugins.resty.openssl.x509.extension")
+local pkey_lib = require("plugins.resty.openssl.pkey")
 local bio_util = require "resty.openssl.auxiliary.bio"
-local txtnid2nid = require("resty.openssl.objects").txtnid2nid
-local find_sigid_algs = require("resty.openssl.objects").find_sigid_algs
+local txtnid2nid = require("plugins.resty.openssl.objects").txtnid2nid
+local find_sigid_algs = require("plugins.resty.openssl.objects").find_sigid_algs
 local ctypes = require "resty.openssl.auxiliary.ctypes"
 local ctx_lib = require "resty.openssl.ctx"
-local format_error = require("resty.openssl.err").format_error
-local version = require("resty.openssl.version")
+local format_error = require("plugins.resty.openssl.err").format_error
+local version = require("plugins.resty.openssl.version")
 local OPENSSL_10 = version.OPENSSL_10
 local OPENSSL_11_OR_LATER = version.OPENSSL_11_OR_LATER
 local OPENSSL_3X = version.OPENSSL_3X
@@ -546,14 +546,14 @@ function _M:get_serial_number()
   -- bn will be duplicated thus this ctx should be freed up
   ffi_gc(got, C.BN_free)
 
-  local lib = require("resty.openssl.bn")
+  local lib = require("plugins.resty.openssl.bn")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED
 function _M:set_serial_number(toset)
-  local lib = require("resty.openssl.bn")
+  local lib = require("plugins.resty.openssl.bn")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_serial_number: expect a bn instance at #1"
   end
@@ -633,14 +633,14 @@ function _M:get_pubkey()
   if got == nil then
     return nil
   end
-  local lib = require("resty.openssl.pkey")
+  local lib = require("plugins.resty.openssl.pkey")
   -- returned a copied instance directly
   return lib.new(got)
 end
 
 -- AUTO GENERATED
 function _M:set_pubkey(toset)
-  local lib = require("resty.openssl.pkey")
+  local lib = require("plugins.resty.openssl.pkey")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_pubkey: expect a pkey instance at #1"
   end
@@ -657,14 +657,14 @@ function _M:get_subject_name()
   if got == nil then
     return nil
   end
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED
 function _M:set_subject_name(toset)
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_subject_name: expect a x509.name instance at #1"
   end
@@ -681,14 +681,14 @@ function _M:get_issuer_name()
   if got == nil then
     return nil
   end
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED
 function _M:set_issuer_name(toset)
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_issuer_name: expect a x509.name instance at #1"
   end
@@ -752,14 +752,14 @@ function _M:get_subject_alt_name()
   local got_ref = got
   ffi_gc(got_ref, stack_lib.gc_of("GENERAL_NAME"))
   got = ffi_cast("GENERAL_NAMES*", got_ref)
-  local lib = require("resty.openssl.x509.altname")
+  local lib = require("plugins.resty.openssl.x509.altname")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED: EXTENSIONS
 function _M:set_subject_alt_name(toset)
-  local lib = require("resty.openssl.x509.altname")
+  local lib = require("plugins.resty.openssl.x509.altname")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_subject_alt_name: expect a x509.altname instance at #1"
   end
@@ -806,14 +806,14 @@ function _M:get_issuer_alt_name()
   local got_ref = got
   ffi_gc(got_ref, stack_lib.gc_of("GENERAL_NAME"))
   got = ffi_cast("GENERAL_NAMES*", got_ref)
-  local lib = require("resty.openssl.x509.altname")
+  local lib = require("plugins.resty.openssl.x509.altname")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED: EXTENSIONS
 function _M:set_issuer_alt_name(toset)
-  local lib = require("resty.openssl.x509.altname")
+  local lib = require("plugins.resty.openssl.x509.altname")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_issuer_alt_name: expect a x509.altname instance at #1"
   end
@@ -951,14 +951,14 @@ function _M:get_info_access()
   local got_ref = got
   ffi_gc(got_ref, stack_lib.gc_of("ACCESS_DESCRIPTION"))
   got = ffi_cast("AUTHORITY_INFO_ACCESS*", got_ref)
-  local lib = require("resty.openssl.x509.extension.info_access")
+  local lib = require("plugins.resty.openssl.x509.extension.info_access")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED: EXTENSIONS
 function _M:set_info_access(toset)
-  local lib = require("resty.openssl.x509.extension.info_access")
+  local lib = require("plugins.resty.openssl.x509.extension.info_access")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_info_access: expect a x509.extension.info_access instance at #1"
   end
@@ -1005,14 +1005,14 @@ function _M:get_crl_distribution_points()
   local got_ref = got
   ffi_gc(got_ref, stack_lib.gc_of("DIST_POINT"))
   got = ffi_cast("OPENSSL_STACK*", got_ref)
-  local lib = require("resty.openssl.x509.extension.dist_points")
+  local lib = require("plugins.resty.openssl.x509.extension.dist_points")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED: EXTENSIONS
 function _M:set_crl_distribution_points(toset)
-  local lib = require("resty.openssl.x509.extension.dist_points")
+  local lib = require("plugins.resty.openssl.x509.extension.dist_points")
   if lib.istype and not lib.istype(toset) then
     return false, "x509:set_crl_distribution_points: expect a x509.extension.dist_points instance at #1"
   end

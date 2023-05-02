@@ -5,19 +5,19 @@ local ffi_gc = ffi.gc
 require "resty.openssl.include.x509.crl"
 require "resty.openssl.include.pem"
 require "resty.openssl.include.x509v3"
-local asn1_lib = require("resty.openssl.asn1")
-local bn_lib = require("resty.openssl.bn")
-local revoked_lib = require("resty.openssl.x509.revoked")
-local digest_lib = require("resty.openssl.digest")
-local extension_lib = require("resty.openssl.x509.extension")
-local pkey_lib = require("resty.openssl.pkey")
+local asn1_lib = require("plugins.resty.openssl.asn1")
+local bn_lib = require("plugins.resty.openssl.bn")
+local revoked_lib = require("plugins.resty.openssl.x509.revoked")
+local digest_lib = require("plugins.resty.openssl.digest")
+local extension_lib = require("plugins.resty.openssl.x509.extension")
+local pkey_lib = require("plugins.resty.openssl.pkey")
 local bio_util = require "resty.openssl.auxiliary.bio"
 local ctx_lib = require "resty.openssl.ctx"
 local stack_lib = require "resty.openssl.stack"
-local txtnid2nid = require("resty.openssl.objects").txtnid2nid
-local find_sigid_algs = require("resty.openssl.objects").find_sigid_algs
-local format_error = require("resty.openssl.err").format_error
-local version = require("resty.openssl.version")
+local txtnid2nid = require("plugins.resty.openssl.objects").txtnid2nid
+local find_sigid_algs = require("plugins.resty.openssl.objects").find_sigid_algs
+local format_error = require("plugins.resty.openssl.err").format_error
+local version = require("plugins.resty.openssl.version")
 local OPENSSL_10 = version.OPENSSL_10
 local OPENSSL_11_OR_LATER = version.OPENSSL_11_OR_LATER
 local OPENSSL_3X = version.OPENSSL_3X
@@ -469,14 +469,14 @@ function _M:get_issuer_name()
   if got == nil then
     return nil
   end
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED
 function _M:set_issuer_name(toset)
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   if lib.istype and not lib.istype(toset) then
     return false, "x509.crl:set_issuer_name: expect a x509.name instance at #1"
   end

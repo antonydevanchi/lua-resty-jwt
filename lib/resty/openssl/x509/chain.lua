@@ -4,7 +4,7 @@ local ffi_gc = ffi.gc
 
 local stack_lib = require "resty.openssl.stack"
 local x509_lib = require "resty.openssl.x509"
-local format_error = require("resty.openssl.err").format_error
+local format_error = require("plugins.resty.openssl.err").format_error
 
 local _M = {}
 

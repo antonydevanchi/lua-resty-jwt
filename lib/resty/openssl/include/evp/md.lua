@@ -1,9 +1,9 @@
 local ffi = require "ffi"
 
 require "resty.openssl.include.ossl_typ"
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 
 ffi.cdef [[
   int EVP_DigestInit_ex(EVP_MD_CTX *ctx, const EVP_MD *type,

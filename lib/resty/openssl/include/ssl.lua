@@ -3,8 +3,8 @@ local C = ffi.C
 
 require "resty.openssl.include.ossl_typ"
 require "resty.openssl.include.stack"
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local BORINGSSL = require("resty.openssl.version").BORINGSSL
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
 
 ffi.cdef [[
   // SSL_METHOD

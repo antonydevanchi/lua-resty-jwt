@@ -1,8 +1,8 @@
 local ffi = require "ffi"
 
 require "resty.openssl.include.ossl_typ"
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local BORINGSSL = require("resty.openssl.version").BORINGSSL
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
 
 if BORINGSSL then
   ffi.cdef [[

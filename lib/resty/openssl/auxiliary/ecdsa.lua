@@ -6,7 +6,7 @@ local C = ffi.C
 
 require "resty.openssl.include.ecdsa"
 local bn_lib = require "resty.openssl.bn"
-local format_error = require("resty.openssl.err").format_error
+local format_error = require("plugins.resty.openssl.err").format_error
 local ceil = math.ceil
 
 local _M = {}

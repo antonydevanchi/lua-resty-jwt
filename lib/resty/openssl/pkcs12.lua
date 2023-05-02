@@ -6,15 +6,15 @@ local ffi_str = ffi.string
 require "resty.openssl.include.pkcs12"
 require "resty.openssl.include.bio"
 local bio_util = require "resty.openssl.auxiliary.bio"
-local format_error = require("resty.openssl.err").format_error
+local format_error = require("plugins.resty.openssl.err").format_error
 local pkey_lib = require "resty.openssl.pkey"
 local x509_lib = require "resty.openssl.x509"
 local stack_macro = require "resty.openssl.include.stack"
 local stack_lib = require "resty.openssl.stack"
 local objects_lib = require "resty.openssl.objects"
 local ctx_lib = require "resty.openssl.ctx"
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 
 local stack_of_x509_new = stack_lib.new_of("X509")
 local stack_of_x509_add = stack_lib.add_of("X509")

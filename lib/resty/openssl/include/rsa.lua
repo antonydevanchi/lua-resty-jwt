@@ -1,8 +1,8 @@
 local ffi = require "ffi"
 
 require "resty.openssl.include.ossl_typ"
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
 
 ffi.cdef [[
   RSA *RSA_new(void);

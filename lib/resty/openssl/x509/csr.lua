@@ -10,16 +10,16 @@ require "resty.openssl.include.asn1"
 local stack_macro = require "resty.openssl.include.stack"
 local stack_lib = require "resty.openssl.stack"
 local pkey_lib = require "resty.openssl.pkey"
-local digest_lib = require("resty.openssl.digest")
-local extension_lib = require("resty.openssl.x509.extension")
-local extensions_lib = require("resty.openssl.x509.extensions")
+local digest_lib = require("plugins.resty.openssl.digest")
+local extension_lib = require("plugins.resty.openssl.x509.extension")
+local extensions_lib = require("plugins.resty.openssl.x509.extensions")
 local bio_util = require "resty.openssl.auxiliary.bio"
 local ctypes = require "resty.openssl.auxiliary.ctypes"
 local ctx_lib = require "resty.openssl.ctx"
-local txtnid2nid = require("resty.openssl.objects").txtnid2nid
-local find_sigid_algs = require("resty.openssl.objects").find_sigid_algs
-local format_error = require("resty.openssl.err").format_error
-local version = require("resty.openssl.version")
+local txtnid2nid = require("plugins.resty.openssl.objects").txtnid2nid
+local find_sigid_algs = require("plugins.resty.openssl.objects").find_sigid_algs
+local format_error = require("plugins.resty.openssl.err").format_error
+local version = require("plugins.resty.openssl.version")
 local OPENSSL_10 = version.OPENSSL_10
 local OPENSSL_11_OR_LATER = version.OPENSSL_11_OR_LATER
 local OPENSSL_3X = version.OPENSSL_3X
@@ -372,14 +372,14 @@ function _M:get_subject_name()
   if got == nil then
     return nil
   end
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED
 function _M:set_subject_name(toset)
-  local lib = require("resty.openssl.x509.name")
+  local lib = require("plugins.resty.openssl.x509.name")
   if lib.istype and not lib.istype(toset) then
     return false, "x509.csr:set_subject_name: expect a x509.name instance at #1"
   end
@@ -396,14 +396,14 @@ function _M:get_pubkey()
   if got == nil then
     return nil
   end
-  local lib = require("resty.openssl.pkey")
+  local lib = require("plugins.resty.openssl.pkey")
   -- returned a copied instance directly
   return lib.new(got)
 end
 
 -- AUTO GENERATED
 function _M:set_pubkey(toset)
-  local lib = require("resty.openssl.pkey")
+  local lib = require("plugins.resty.openssl.pkey")
   if lib.istype and not lib.istype(toset) then
     return false, "x509.csr:set_pubkey: expect a pkey instance at #1"
   end
@@ -468,14 +468,14 @@ function _M:get_subject_alt_name()
   local got_ref = got
   ffi_gc(got_ref, stack_lib.gc_of("GENERAL_NAME"))
   got = ffi_cast("GENERAL_NAMES*", got_ref)
-  local lib = require("resty.openssl.x509.altname")
+  local lib = require("plugins.resty.openssl.x509.altname")
   -- the internal ptr is returned, ie we need to copy it
   return lib.dup(got)
 end
 
 -- AUTO GENERATED: EXTENSIONS
 function _M:set_subject_alt_name(toset)
-  local lib = require("resty.openssl.x509.altname")
+  local lib = require("plugins.resty.openssl.x509.altname")
   if lib.istype and not lib.istype(toset) then
     return false, "x509.csr:set_subject_alt_name: expect a x509.altname instance at #1"
   end

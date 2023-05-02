@@ -8,10 +8,10 @@ require "resty.openssl.include.evp.cipher"
 local evp_macro = require "resty.openssl.include.evp"
 local ctypes = require "resty.openssl.auxiliary.ctypes"
 local ctx_lib = require "resty.openssl.ctx"
-local format_error = require("resty.openssl.err").format_error
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local format_error = require("plugins.resty.openssl.err").format_error
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 
 local uchar_array = ctypes.uchar_array
 local void_ptr = ctypes.void_ptr

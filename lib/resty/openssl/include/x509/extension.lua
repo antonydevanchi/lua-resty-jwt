@@ -4,7 +4,7 @@ require "resty.openssl.include.ossl_typ"
 require "resty.openssl.include.x509v3"
 require "resty.openssl.include.x509"
 local asn1_macro = require "resty.openssl.include.asn1"
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 
 asn1_macro.declare_asn1_functions("X509_EXTENSION")
 

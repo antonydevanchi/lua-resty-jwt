@@ -4,10 +4,10 @@ local C = ffi.C
 
 require "resty.openssl.include.ossl_typ"
 require "resty.openssl.include.evp.md"
-local evp = require("resty.openssl.include.evp")
+local evp = require("plugins.resty.openssl.include.evp")
 local ctypes = require "resty.openssl.auxiliary.ctypes"
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local BORINGSSL = require("resty.openssl.version").BORINGSSL
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
 
 local void_ptr = ctypes.void_ptr
 

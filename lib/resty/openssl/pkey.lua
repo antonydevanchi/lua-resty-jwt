@@ -25,12 +25,12 @@ local jwk_lib = require "resty.openssl.auxiliary.jwk"
 local ctx_lib = require "resty.openssl.ctx"
 local ctypes = require "resty.openssl.auxiliary.ctypes"
 local ecdsa_util = require "resty.openssl.auxiliary.ecdsa"
-local format_error = require("resty.openssl.err").format_error
+local format_error = require("plugins.resty.openssl.err").format_error
 
-local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_111_OR_LATER = require("resty.openssl.version").OPENSSL_111_OR_LATER
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local BORINGSSL = require("resty.openssl.version").BORINGSSL
+local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_111_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_111_OR_LATER
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
 
 local ptr_of_uint = ctypes.ptr_of_uint
 local ptr_of_size_t = ctypes.ptr_of_size_t

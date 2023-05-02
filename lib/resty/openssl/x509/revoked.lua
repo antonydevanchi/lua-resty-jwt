@@ -4,8 +4,8 @@ local ffi_gc = ffi.gc
 
 require "resty.openssl.include.x509.crl"
 require "resty.openssl.include.x509.revoked"
-local bn_lib = require("resty.openssl.bn")
-local format_error = require("resty.openssl.err").format_error
+local bn_lib = require("plugins.resty.openssl.bn")
+local format_error = require("plugins.resty.openssl.err").format_error
 
 local _M = {}
 local mt = { __index = _M }

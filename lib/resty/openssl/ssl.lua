@@ -5,13 +5,13 @@ local ffi_cast = ffi.cast
 
 require "resty.openssl.include.ssl"
 
-local nginx_aux = require("resty.openssl.auxiliary.nginx")
-local x509_lib = require("resty.openssl.x509")
-local chain_lib = require("resty.openssl.x509.chain")
-local stack_lib = require("resty.openssl.stack")
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local format_error = require("resty.openssl.err").format_error
+local nginx_aux = require("plugins.resty.openssl.auxiliary.nginx")
+local x509_lib = require("plugins.resty.openssl.x509")
+local chain_lib = require("plugins.resty.openssl.x509.chain")
+local stack_lib = require("plugins.resty.openssl.stack")
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local format_error = require("plugins.resty.openssl.err").format_error
 
 local _M = {
   SSL_VERIFY_NONE                 = 0x00,

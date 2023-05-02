@@ -3,8 +3,8 @@ local C = ffi.C
 
 require "resty.openssl.include.ossl_typ"
 require "resty.openssl.include.objects"
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
 
 if OPENSSL_11_OR_LATER then
   ffi.cdef [[

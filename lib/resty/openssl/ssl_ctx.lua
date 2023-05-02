@@ -6,7 +6,7 @@ local concat = table.concat
 
 require "resty.openssl.include.ssl"
 
-local nginx_aux = require("resty.openssl.auxiliary.nginx")
+local nginx_aux = require("plugins.resty.openssl.auxiliary.nginx")
 
 local _M = {}
 local mt = {__index = _M}

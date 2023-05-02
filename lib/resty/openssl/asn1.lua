@@ -3,7 +3,7 @@ local C = ffi.C
 local ffi_str = ffi.string
 local floor = math.floor
 
-local asn1_macro = require("resty.openssl.include.asn1")
+local asn1_macro = require("plugins.resty.openssl.include.asn1")
 
 -- https://github.com/wahern/luaossl/blob/master/src/openssl.c
 local function isleap(year)

@@ -4,9 +4,9 @@ local C = ffi.C
 require "resty.openssl.include.provider"
 local param_lib = require "resty.openssl.param"
 local ctx_lib = require "resty.openssl.ctx"
-local null = require("resty.openssl.auxiliary.ctypes").null
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local format_error = require("resty.openssl.err").format_error
+local null = require("plugins.resty.openssl.auxiliary.ctypes").null
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local format_error = require("plugins.resty.openssl.err").format_error
 
 if not OPENSSL_3X then
   error("provider is only supported since OpenSSL 3.0")

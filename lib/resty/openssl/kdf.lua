@@ -3,17 +3,17 @@ local C = ffi.C
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 
-require("resty.openssl.objects")
-require("resty.openssl.include.evp.md")
+require("plugins.resty.openssl.objects")
+require("plugins.resty.openssl.include.evp.md")
 -- used by legacy EVP_PKEY_derive interface
-require("resty.openssl.include.evp.pkey")
+require("plugins.resty.openssl.include.evp.pkey")
 local kdf_macro = require "resty.openssl.include.evp.kdf"
 local ctx_lib = require "resty.openssl.ctx"
-local format_error = require("resty.openssl.err").format_error
-local version_num = require("resty.openssl.version").version_num
-local version_text = require("resty.openssl.version").version_text
-local BORINGSSL = require("resty.openssl.version").BORINGSSL
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
+local format_error = require("plugins.resty.openssl.err").format_error
+local version_num = require("plugins.resty.openssl.version").version_num
+local version_text = require("plugins.resty.openssl.version").version_text
+local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 local ctypes = require "resty.openssl.auxiliary.ctypes"
 
 --[[

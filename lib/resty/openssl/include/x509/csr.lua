@@ -8,10 +8,10 @@ require "resty.openssl.include.stack"
 
 local asn1_macro = require "resty.openssl.include.asn1"
 
-local OPENSSL_10 = require("resty.openssl.version").OPENSSL_10
-local OPENSSL_11_OR_LATER = require("resty.openssl.version").OPENSSL_11_OR_LATER
-local OPENSSL_3X = require("resty.openssl.version").OPENSSL_3X
-local BORINGSSL_110 = require("resty.openssl.version").BORINGSSL_110
+local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
+local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
+local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
+local BORINGSSL_110 = require("plugins.resty.openssl.version").BORINGSSL_110
 
 asn1_macro.declare_asn1_functions("X509_REQ", asn1_macro.has_new_ex)
 
