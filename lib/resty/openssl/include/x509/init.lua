@@ -1,10 +1,10 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.bio"
-require "resty.openssl.include.pem"
-require "resty.openssl.include.stack"
-local asn1_macro = require "resty.openssl.include.asn1"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.bio"
+require "plugins.resty.openssl.include.pem"
+require "plugins.resty.openssl.include.stack"
+local asn1_macro = require "plugins.resty.openssl.include.asn1"
 
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER

@@ -3,9 +3,9 @@ local C = ffi.C
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 
-require "resty.openssl.include.evp.md"
-local ctypes = require "resty.openssl.auxiliary.ctypes"
-local ctx_lib = require "resty.openssl.ctx"
+require "plugins.resty.openssl.include.evp.md"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
+local ctx_lib = require "plugins.resty.openssl.ctx"
 local format_error = require("plugins.resty.openssl.err").format_error
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
@@ -73,7 +73,7 @@ function _M:get_provider_name()
 end
 
 if OPENSSL_3X then
-  local param_lib = require "resty.openssl.param"
+  local param_lib = require "plugins.resty.openssl.param"
   _M.settable_params, _M.set_params, _M.gettable_params, _M.get_param = param_lib.get_params_func("EVP_MD_CTX")
 end
 

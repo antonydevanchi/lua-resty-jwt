@@ -5,15 +5,15 @@ local ffi_new = ffi.new
 local ffi_cast = ffi.cast
 local ffi_str = ffi.string
 
-require "resty.openssl.include.x509"
-require "resty.openssl.include.x509.extension"
-require "resty.openssl.include.x509v3"
-require "resty.openssl.include.bio"
-require "resty.openssl.include.conf"
+require "plugins.resty.openssl.include.x509"
+require "plugins.resty.openssl.include.x509.extension"
+require "plugins.resty.openssl.include.x509v3"
+require "plugins.resty.openssl.include.bio"
+require "plugins.resty.openssl.include.conf"
 local asn1_macro = require("plugins.resty.openssl.include.asn1")
-local objects_lib = require "resty.openssl.objects"
+local objects_lib = require "plugins.resty.openssl.objects"
 local stack_lib = require("plugins.resty.openssl.stack")
-local bio_util = require "resty.openssl.auxiliary.bio"
+local bio_util = require "plugins.resty.openssl.auxiliary.bio"
 local format_error = require("plugins.resty.openssl.err").format_error
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL

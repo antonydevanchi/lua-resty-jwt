@@ -4,11 +4,11 @@ local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 local bor = bit.bor
 
-local x509_vfy_macro = require "resty.openssl.include.x509_vfy"
-local x509_lib = require "resty.openssl.x509"
-local chain_lib = require "resty.openssl.x509.chain"
-local crl_lib = require "resty.openssl.x509.crl"
-local ctx_lib = require "resty.openssl.ctx"
+local x509_vfy_macro = require "plugins.resty.openssl.include.x509_vfy"
+local x509_lib = require "plugins.resty.openssl.x509"
+local chain_lib = require "plugins.resty.openssl.x509.chain"
+local crl_lib = require "plugins.resty.openssl.x509.crl"
+local ctx_lib = require "plugins.resty.openssl.ctx"
 local format_error = require("plugins.resty.openssl.err").format_all_error
 local format_all_error = require("plugins.resty.openssl.err").format_error
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X

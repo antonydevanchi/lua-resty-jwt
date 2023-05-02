@@ -3,7 +3,7 @@ local C = ffi.C
 local ffi_str = ffi.string
 local ffi_cast = ffi.cast
 
-require "resty.openssl.include.ssl"
+require "plugins.resty.openssl.include.ssl"
 
 local nginx_aux = require("plugins.resty.openssl.auxiliary.nginx")
 local x509_lib = require("plugins.resty.openssl.x509")

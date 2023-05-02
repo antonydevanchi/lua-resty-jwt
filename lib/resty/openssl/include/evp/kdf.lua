@@ -2,10 +2,10 @@ local ffi = require "ffi"
 local ffi_cast = ffi.cast
 local C = ffi.C
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.evp.md"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.evp.md"
 local evp = require("plugins.resty.openssl.include.evp")
-local ctypes = require "resty.openssl.auxiliary.ctypes"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
 
@@ -18,7 +18,7 @@ local _M = {
 }
 
 if OPENSSL_3X then
-  require "resty.openssl.include.provider"
+  require "plugins.resty.openssl.include.provider"
 
   ffi.cdef [[
     const OSSL_PROVIDER *EVP_KDF_get0_provider(const EVP_KDF *kdf);

@@ -4,21 +4,21 @@ local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 local ffi_cast = ffi.cast
 
-require "resty.openssl.include.x509"
-require "resty.openssl.include.x509v3"
-require "resty.openssl.include.evp"
-require "resty.openssl.include.objects"
+require "plugins.resty.openssl.include.x509"
+require "plugins.resty.openssl.include.x509v3"
+require "plugins.resty.openssl.include.evp"
+require "plugins.resty.openssl.include.objects"
 local stack_macro = require("plugins.resty.openssl.include.stack")
 local stack_lib = require("plugins.resty.openssl.stack")
 local asn1_lib = require("plugins.resty.openssl.asn1")
 local digest_lib = require("plugins.resty.openssl.digest")
 local extension_lib = require("plugins.resty.openssl.x509.extension")
 local pkey_lib = require("plugins.resty.openssl.pkey")
-local bio_util = require "resty.openssl.auxiliary.bio"
+local bio_util = require "plugins.resty.openssl.auxiliary.bio"
 local txtnid2nid = require("plugins.resty.openssl.objects").txtnid2nid
 local find_sigid_algs = require("plugins.resty.openssl.objects").find_sigid_algs
-local ctypes = require "resty.openssl.auxiliary.ctypes"
-local ctx_lib = require "resty.openssl.ctx"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
+local ctx_lib = require "plugins.resty.openssl.ctx"
 local format_error = require("plugins.resty.openssl.err").format_error
 local version = require("plugins.resty.openssl.version")
 local OPENSSL_10 = version.OPENSSL_10

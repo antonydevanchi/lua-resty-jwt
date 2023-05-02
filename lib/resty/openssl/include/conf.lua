@@ -1,6 +1,6 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.ossl_typ"
 
 ffi.cdef [[
     CONF *NCONF_new(CONF_METHOD *meth);

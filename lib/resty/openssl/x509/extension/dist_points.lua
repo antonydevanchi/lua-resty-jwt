@@ -1,9 +1,9 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.x509"
-require "resty.openssl.include.x509v3"
-local altname_lib = require "resty.openssl.x509.altname"
-local stack_lib = require "resty.openssl.stack"
+require "plugins.resty.openssl.include.x509"
+require "plugins.resty.openssl.include.x509v3"
+local altname_lib = require "plugins.resty.openssl.x509.altname"
+local stack_lib = require "plugins.resty.openssl.stack"
 
 local _M = {}
 

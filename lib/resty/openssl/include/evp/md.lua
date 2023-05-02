@@ -1,6 +1,6 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.ossl_typ"
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
@@ -31,7 +31,7 @@ ffi.cdef [[
 ]]
 
 if OPENSSL_3X then
-  require "resty.openssl.include.provider"
+  require "plugins.resty.openssl.include.provider"
 
   ffi.cdef [[
     int EVP_MD_get_size(const EVP_MD *md);

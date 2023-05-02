@@ -3,16 +3,16 @@ local C = ffi.C
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 
-require "resty.openssl.include.pkcs12"
-require "resty.openssl.include.bio"
-local bio_util = require "resty.openssl.auxiliary.bio"
+require "plugins.resty.openssl.include.pkcs12"
+require "plugins.resty.openssl.include.bio"
+local bio_util = require "plugins.resty.openssl.auxiliary.bio"
 local format_error = require("plugins.resty.openssl.err").format_error
-local pkey_lib = require "resty.openssl.pkey"
-local x509_lib = require "resty.openssl.x509"
-local stack_macro = require "resty.openssl.include.stack"
-local stack_lib = require "resty.openssl.stack"
-local objects_lib = require "resty.openssl.objects"
-local ctx_lib = require "resty.openssl.ctx"
+local pkey_lib = require "plugins.resty.openssl.pkey"
+local x509_lib = require "plugins.resty.openssl.x509"
+local stack_macro = require "plugins.resty.openssl.include.stack"
+local stack_lib = require "plugins.resty.openssl.stack"
+local objects_lib = require "plugins.resty.openssl.objects"
+local ctx_lib = require "plugins.resty.openssl.ctx"
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 

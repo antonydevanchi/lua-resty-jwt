@@ -2,10 +2,10 @@ local ffi = require "ffi"
 local C = ffi.C
 local ffi_gc = ffi.gc
 
-require "resty.openssl.include.ec"
-local bn_lib = require "resty.openssl.bn"
-local objects_lib = require "resty.openssl.objects"
-local ctypes = require "resty.openssl.auxiliary.ctypes"
+require "plugins.resty.openssl.include.ec"
+local bn_lib = require "plugins.resty.openssl.bn"
+local objects_lib = require "plugins.resty.openssl.objects"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
 
 local version_num = require("plugins.resty.openssl.version").version_num
 local format_error = require("plugins.resty.openssl.err").format_error

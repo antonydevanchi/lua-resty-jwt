@@ -4,7 +4,7 @@ local new_tab = table.new
 local char = string.char
 local concat = table.concat
 
-require "resty.openssl.include.ssl"
+require "plugins.resty.openssl.include.ssl"
 
 local nginx_aux = require("plugins.resty.openssl.auxiliary.nginx")
 

@@ -1,7 +1,7 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-local bn_lib = require "resty.openssl.bn"
+local bn_lib = require "plugins.resty.openssl.bn"
 
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER

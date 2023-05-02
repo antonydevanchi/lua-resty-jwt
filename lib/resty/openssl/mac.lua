@@ -3,10 +3,10 @@ local C = ffi.C
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
 
-require "resty.openssl.include.evp.mac"
-local param_lib = require "resty.openssl.param"
-local ctx_lib = require "resty.openssl.ctx"
-local ctypes = require "resty.openssl.auxiliary.ctypes"
+require "plugins.resty.openssl.include.evp.mac"
+local param_lib = require "plugins.resty.openssl.param"
+local ctx_lib = require "plugins.resty.openssl.ctx"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
 local format_error = require("plugins.resty.openssl.err").format_error
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 

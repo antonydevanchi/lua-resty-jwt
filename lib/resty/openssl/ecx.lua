@@ -2,9 +2,9 @@ local ffi = require "ffi"
 local C = ffi.C
 local ffi_str = ffi.string
 
-require "resty.openssl.include.ec"
-require "resty.openssl.include.evp"
-local ctypes = require "resty.openssl.auxiliary.ctypes"
+require "plugins.resty.openssl.include.ec"
+require "plugins.resty.openssl.include.evp"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
 local format_error = require("plugins.resty.openssl.err").format_error
 
 local _M = {}

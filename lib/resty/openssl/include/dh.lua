@@ -1,8 +1,8 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.objects"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.objects"
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_11_OR_LATER = require("plugins.resty.openssl.version").OPENSSL_11_OR_LATER
 

@@ -3,7 +3,7 @@ local cjson = require "cjson.safe"
 local evp = require "plugins.resty.evp"
 local hmac = require "plugins.resty.hmac"
 local resty_random = require "plugins.resty.random"
-local cipher = require "resty.openssl.cipher"
+local cipher = require "plugins.resty.openssl.cipher"
 
 local _M = { _VERSION = "0.2.3" }
 
@@ -703,7 +703,7 @@ end
 
 local function get_claim_spec_from_legacy_options(self, options)
   local claim_spec = { }
-  local jwt_validators = require "resty.jwt-validators"
+  local jwt_validators = require "plugins.resty.jwt-validators"
 
   if options[str_const.valid_issuers] ~= nil then
     claim_spec[str_const.iss] = jwt_validators.equals_any_of(options[str_const.valid_issuers])

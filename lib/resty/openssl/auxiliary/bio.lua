@@ -4,7 +4,7 @@ local ffi_gc = ffi.gc
 local ffi_new = ffi.new
 local ffi_str = ffi.string
 
-require "resty.openssl.include.bio"
+require "plugins.resty.openssl.include.bio"
 local format_error = require("plugins.resty.openssl.err").format_error
 
 local function read_wrap(f, ...)

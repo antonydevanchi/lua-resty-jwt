@@ -703,7 +703,7 @@ end
 
 local function get_claim_spec_from_legacy_options(self, options)
   local claim_spec = { }
-  local jwt_validators = require "resty.jwt-validators"
+  local jwt_validators = require "plugins.resty.jwt-validators"
 
   if options[str_const.valid_issuers] ~= nil then
     claim_spec[str_const.iss] = jwt_validators.equals_any_of(options[str_const.valid_issuers])

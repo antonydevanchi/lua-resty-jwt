@@ -3,11 +3,11 @@ local C = ffi.C
 local ffi_gc = ffi.gc
 local ffi_cast = ffi.cast
 
-require "resty.openssl.include.x509"
-require "resty.openssl.include.x509v3"
-require "resty.openssl.include.err"
-local altname_lib = require "resty.openssl.x509.altname"
-local stack_lib = require "resty.openssl.stack"
+require "plugins.resty.openssl.include.x509"
+require "plugins.resty.openssl.include.x509v3"
+require "plugins.resty.openssl.include.err"
+local altname_lib = require "plugins.resty.openssl.x509.altname"
+local stack_lib = require "plugins.resty.openssl.stack"
 
 local _M = {}
 

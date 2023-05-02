@@ -1,8 +1,8 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.evp.md"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.evp.md"
 local evp = require("plugins.resty.openssl.include.evp")
 local OPENSSL_10 = require("plugins.resty.openssl.version").OPENSSL_10
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
@@ -86,7 +86,7 @@ ffi.cdef [[
 ]]
 
 if OPENSSL_3X then
-  require "resty.openssl.include.provider"
+  require "plugins.resty.openssl.include.provider"
 
   ffi.cdef [[
     int EVP_PKEY_CTX_set_rsa_padding(EVP_PKEY_CTX *ctx, int pad_mode);

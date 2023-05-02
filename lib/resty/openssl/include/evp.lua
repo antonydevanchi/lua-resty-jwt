@@ -2,9 +2,9 @@ local ffi = require "ffi"
 local C = ffi.C
 local bit = require("bit")
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.err"
-require "resty.openssl.include.objects"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.err"
+require "plugins.resty.openssl.include.objects"
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 local BORINGSSL = require("plugins.resty.openssl.version").BORINGSSL
 
@@ -35,7 +35,7 @@ else
 end
 
 if OPENSSL_3X then
-  require "resty.openssl.include.provider"
+  require "plugins.resty.openssl.include.provider"
 
   ffi.cdef [[
     int EVP_set_default_properties(OSSL_LIB_CTX *libctx, const char *propq);

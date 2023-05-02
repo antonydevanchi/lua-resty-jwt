@@ -2,8 +2,8 @@ local ffi = require "ffi"
 local C = ffi.C
 local ffi_gc = ffi.gc
 
-require "resty.openssl.include.x509.crl"
-require "resty.openssl.include.x509.revoked"
+require "plugins.resty.openssl.include.x509.crl"
+require "plugins.resty.openssl.include.x509.revoked"
 local bn_lib = require("plugins.resty.openssl.bn")
 local format_error = require("plugins.resty.openssl.err").format_error
 

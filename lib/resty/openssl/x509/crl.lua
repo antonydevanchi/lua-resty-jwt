@@ -2,18 +2,18 @@ local ffi = require "ffi"
 local C = ffi.C
 local ffi_gc = ffi.gc
 
-require "resty.openssl.include.x509.crl"
-require "resty.openssl.include.pem"
-require "resty.openssl.include.x509v3"
+require "plugins.resty.openssl.include.x509.crl"
+require "plugins.resty.openssl.include.pem"
+require "plugins.resty.openssl.include.x509v3"
 local asn1_lib = require("plugins.resty.openssl.asn1")
 local bn_lib = require("plugins.resty.openssl.bn")
 local revoked_lib = require("plugins.resty.openssl.x509.revoked")
 local digest_lib = require("plugins.resty.openssl.digest")
 local extension_lib = require("plugins.resty.openssl.x509.extension")
 local pkey_lib = require("plugins.resty.openssl.pkey")
-local bio_util = require "resty.openssl.auxiliary.bio"
-local ctx_lib = require "resty.openssl.ctx"
-local stack_lib = require "resty.openssl.stack"
+local bio_util = require "plugins.resty.openssl.auxiliary.bio"
+local ctx_lib = require "plugins.resty.openssl.ctx"
+local stack_lib = require "plugins.resty.openssl.stack"
 local txtnid2nid = require("plugins.resty.openssl.objects").txtnid2nid
 local find_sigid_algs = require("plugins.resty.openssl.objects").find_sigid_algs
 local format_error = require("plugins.resty.openssl.err").format_error

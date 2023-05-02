@@ -1,9 +1,9 @@
 local ffi = require "ffi"
 local C = ffi.C
 
-require "resty.openssl.include.provider"
-local param_lib = require "resty.openssl.param"
-local ctx_lib = require "resty.openssl.ctx"
+require "plugins.resty.openssl.include.provider"
+local param_lib = require "plugins.resty.openssl.param"
+local ctx_lib = require "plugins.resty.openssl.ctx"
 local null = require("plugins.resty.openssl.auxiliary.ctypes").null
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 local format_error = require("plugins.resty.openssl.err").format_error

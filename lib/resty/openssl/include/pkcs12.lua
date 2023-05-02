@@ -1,7 +1,7 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.stack"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.stack"
 
 local OPENSSL_3X = require("plugins.resty.openssl.version").OPENSSL_3X
 

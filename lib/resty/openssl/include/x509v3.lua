@@ -1,8 +1,8 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.stack"
-local asn1_macro = require "resty.openssl.include.asn1"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.stack"
+local asn1_macro = require "plugins.resty.openssl.include.asn1"
 
 ffi.cdef [[
   // STACK_OF(OPENSSL_STRING)

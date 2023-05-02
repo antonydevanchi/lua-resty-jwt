@@ -10,7 +10,7 @@ local C = ffi.C
 local ffi_cast = ffi.cast
 local ffi_gc = ffi.gc
 
-local stack_macro = require "resty.openssl.include.stack"
+local stack_macro = require "plugins.resty.openssl.include.stack"
 local format_error = require("plugins.resty.openssl.err").format_error
 
 local _M = {}

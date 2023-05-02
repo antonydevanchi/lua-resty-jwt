@@ -3,8 +3,8 @@ local C = ffi.C
 local ffi_str = ffi.string
 local ffi_sizeof = ffi.sizeof
 
-local ctypes = require "resty.openssl.auxiliary.ctypes"
-require "resty.openssl.include.err"
+local ctypes = require "plugins.resty.openssl.auxiliary.ctypes"
+require "plugins.resty.openssl.include.err"
 
 local constchar_ptrptr = ffi.typeof("const char*[1]")
 

@@ -1,6 +1,6 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.ossl_typ"
 
 ffi.cdef [[
   typedef struct ossl_param_st {

@@ -1,7 +1,7 @@
 local ffi = require "ffi"
 
-require "resty.openssl.include.ossl_typ"
-require "resty.openssl.include.param"
+require "plugins.resty.openssl.include.ossl_typ"
+require "plugins.resty.openssl.include.param"
 
 ffi.cdef [[
   typedef struct ossl_provider_st OSSL_PROVIDER;
